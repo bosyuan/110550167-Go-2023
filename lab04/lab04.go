@@ -24,7 +24,7 @@ func gcd(a, b int)int{
 	return gcd(b, a%b)
 }
 
-func Lab4(w http.ResponseWriter, r *http.Request) {
+func Calculator(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.RawQuery
 	params := strings.Split(query, "&")
 	op:= ""
@@ -125,6 +125,6 @@ func Lab4(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", Lab4)
+	http.HandleFunc("/", Calculator)
 	log.Fatal(http.ListenAndServe(":8084", nil))
 }
